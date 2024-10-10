@@ -9,19 +9,31 @@ public class Kote_1173 {
         int T=sc.nextInt();
         int R=sc.nextInt();
         int x=m;
+        int n=0;
         int t=0;
-        for (int i=0;i<=N;i++){
-            if(x+T>M){
-                i--;
-                t++;
-            } else if (x-R<m) {
-                t++;
-            }else if(x-R>m&&x+T<M){
-                t++;
-            }else {
-                System.out.println("-1");
+        while (true){
+            if(n==N){
+                break;
+            }
+
+            else {
+                if(x+T>M&&m+T<=M){
+                    x=x-R;
+                    t++;
+                    if(x<=m){
+                        x=m;
+                    }
+                } else if (x+T<=M) {
+                    x=x+T;
+                    t++;
+                    n++;
+                }else {
+                    t=-1;
+                    break;
+                }
             }
         }
+
         System.out.println(t);
     }
 }
